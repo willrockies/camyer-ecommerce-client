@@ -54,3 +54,16 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
  - Reactive extensions for javascript
  - Utility library for working with the observables, similiar to loadsh or underscore for javascript objects and arrays
  - Uses the pipe() method to chain Rxjs operators together
+
+## Intro to typescript 
+ # Typescript rocks
+  - strong typing 
+  - Object Orientated
+  - Better Intellisense
+  - Access Modifiers
+  - Future Javascript features
+  - Catches silly mistakes in development
+  - third party libraries
+  - Easy to learn if you know javascript
+
+  # Typescript is annoying 
