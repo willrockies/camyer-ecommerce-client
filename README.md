@@ -40,3 +40,17 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
  to understand the basics of observables and typescript
 
 ## Intro to the http client module
+
+
+## Observables
+ - A sequence of items that arrive asynchronously over time
+# HTTP, Observables and RXJS
+ 1. HTTP Get Request from shopService
+ 2. Receive the observable and cast it into a products array
+ 3. Subscribe to the Observable from the component 
+ 4. Assign the products array to a local variable for use in the components template
+
+# RXJS
+ - Reactive extensions for javascript
+ - Utility library for working with the observables, similiar to loadsh or underscore for javascript objects and arrays
+ - Uses the pipe() method to chain Rxjs operators together
