@@ -38,3 +38,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
  to be able to use the http client to retrieve data from the API
 
  to understand the basics of observables and typescript
+
+## Intro to the http client module
