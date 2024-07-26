@@ -11,7 +11,7 @@ import { Type } from '../shared/models/type';
 export class ShopComponent implements OnInit {
   products: Product[] = [];
   types: Type[] = [];
-
+  typeIdSelected = 0;
   constructor(private shopService: ShopService) {}
 
   ngOnInit(): void {
@@ -20,7 +20,7 @@ export class ShopComponent implements OnInit {
   }
 
   getProducts(){
-    this.shopService.getProducts().subscribe({
+    this.shopService.getProducts(this.typeIdSelected).subscribe({
       next: response => this.products = response.data,
       error: error => console.log(error),
       complete: () => console.log('Request has completed')
@@ -29,9 +29,14 @@ export class ShopComponent implements OnInit {
 
   getTypes(){
     this.shopService.getTypes().subscribe({
-      next: response => this.types = response,
+      next: response => this.types = [{id:0, name: 'All'}, ...response],
       error: error => console.log(error),
       complete: () => console.log('Request has completed')
     })
+  }
+
+  onTypeSelected(typeId: number){
+    this.typeIdSelected = typeId;
+    this.getProducts();
   }
 }
