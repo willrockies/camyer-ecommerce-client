@@ -11,10 +11,11 @@ export class ShopService {
   baseUrl = 'https://localhost:5001/api/';
   constructor(private http: HttpClient) { }
 
-  getProducts(typeId?: number) {
+  getProducts(typeId?: number, sort?: string) {
     let params = new HttpParams();
 
     if (typeId) params = params.append('typeId', typeId);
+    if (sort) params = params.append('sort', sort);
 
     return this.http.get<Pagination<Product[]>>(this.baseUrl + 'products', {params: params});
   }
