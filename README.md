@@ -70,3 +70,23 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
   - More upfront code
   - third party libraries
   - strict mode is ... strict!
+
+  ## building the UI shop 
+   - File and folder structure 
+   - Angular services
+   - Building the UI for the shop
+   - Pagination 
+   - Filtering, Sorting & Search 
+   - Input and Output properties
+
+  # File and folder structure in angular
+
+  - AppModule
+    - CoreModule 
+      - Singleton: NavBar
+      
+    - SharedModule
+      - SharedComponents: Anything we need to use in more than 1 feature module
+
+    - FeatureModules
+      - AppFeatures: Each feature we create will have its own module routing
