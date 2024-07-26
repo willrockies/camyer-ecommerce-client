@@ -66,4 +66,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
   - third party libraries
   - Easy to learn if you know javascript
 
-  # Typescript is annoying 
+ # Typescript is annoying! 
+  - More upfront code
+  - third party libraries
+  - strict mode is ... strict!
