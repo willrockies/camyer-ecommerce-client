@@ -10,17 +10,9 @@ import { Pagination } from './shared/models/pagination';
 })
 export class AppComponent implements OnInit {
   title = 'Camyer';
-  products: Product[] = []
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get<Pagination<Product[]>>('https://localhost:5001/api/products?pageSize=50').subscribe({
-      next: (response: any) => this.products = response.data,
-      error: error => console.log(error),
-      complete: () => {
-        console.log('Request has completed');
-        console.log('extra statement');
-      }
-    })
+
   }
 }
