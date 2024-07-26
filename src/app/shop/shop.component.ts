@@ -1,3 +1,4 @@
+import { ShopParams } from './../shared/models/shopParams';
 import { Component, OnInit } from '@angular/core';
 import { ShopService } from './shop.service';
 import { Product } from '../shared/models/product';
@@ -11,13 +12,16 @@ import { Type } from '../shared/models/type';
 export class ShopComponent implements OnInit {
   products: Product[] = [];
   types: Type[] = [];
-  typeIdSelected = 0;
-  sortSelected = 'name';
+
+  shopParams = new ShopParams();
+
   sortOptions = [
     { name: 'Alphabetical', value: 'name' },
     { name: 'Price: Low to high', value: 'priceAsc' },
     { name: 'Price: High to low', value: 'priceDesc' }
   ];
+
+  totalCount = 0;
 
   constructor(private shopService: ShopService) { }
 
@@ -27,8 +31,14 @@ export class ShopComponent implements OnInit {
   }
 
   getProducts() {
-    this.shopService.getProducts(this.typeIdSelected, this.sortSelected).subscribe({
-      next: response => this.products = response.data,
+    this.shopService.getProducts(this.shopParams).subscribe({
+      next: response => {
+        this.products = response.data;
+        this.shopParams.pageNumber = response.pageIndex;
+        this.shopParams.pageSize = response.pageSize;
+        this.totalCount = response.count;
+      },
+
       error: error => console.log(error),
       complete: () => console.log('Request has completed')
     })
@@ -43,12 +53,12 @@ export class ShopComponent implements OnInit {
   }
 
   onTypeSelected(typeId: number) {
-    this.typeIdSelected = typeId;
+    this.shopParams.typeId = typeId;
     this.getProducts();
   }
 
   onSortSelected(event: any) {
-    this.sortSelected = event.target.value;
+    this.shopParams.sort = event.target.value;
     this.getProducts();
   }
 }
