@@ -9,8 +9,11 @@
       </select>
       <h5 class="text-warning ms-3">Types</h5>
       <ul class="list-group my-3">
-        <li class="list-group-item" *ngFor="let type of types">{{type.name}}</li>
-
+        <li class="list-group-item"
+           *ngFor="let type of types"
+            [class.active]="type.id === typeIdSelected"
+            [value]="type.id"
+            (click)="onTypeSelected(type.id)">{{type.name}}</li>
       </ul>
     </section>
     <section class="col-9">
