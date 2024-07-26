@@ -48,7 +48,9 @@
           [boundaryLinks]="true"
           [totalItems]="totalCount"
           [itemsPerPage]="shopParams.pageSize"
-          [maxSize]="10">
+          [maxSize]="10"
+          (pageChanged)="onPageChanged($event)"
+          >
         </pagination>
       </div>
     </section>

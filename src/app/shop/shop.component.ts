@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShopService } from './shop.service';
 import { Product } from '../shared/models/product';
 import { Type } from '../shared/models/type';
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 
 @Component({
   selector: 'app-shop',
@@ -10,6 +11,7 @@ import { Type } from '../shared/models/type';
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit {
+
   products: Product[] = [];
   types: Type[] = [];
 
@@ -61,4 +63,13 @@ export class ShopComponent implements OnInit {
     this.shopParams.sort = event.target.value;
     this.getProducts();
   }
+
+  onPageChanged($event: any) {
+    if (this.shopParams.pageNumber !== $event.page) {
+      this.shopParams.pageNumber = $event.page;
+      this.getProducts();
+    }
+  }
+
+
 }
