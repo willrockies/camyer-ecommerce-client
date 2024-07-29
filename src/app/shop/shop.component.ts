@@ -1,9 +1,9 @@
 import { ShopParams } from './../shared/models/shopParams';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ShopService } from './shop.service';
 import { Product } from '../shared/models/product';
 import { Type } from '../shared/models/type';
-import { PageChangedEvent } from 'ngx-bootstrap/pagination';
+
 
 @Component({
   selector: 'app-shop',
@@ -11,7 +11,7 @@ import { PageChangedEvent } from 'ngx-bootstrap/pagination';
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit {
-
+  @ViewChild('searchInput') searchTerm?: ElementRef;
   products: Product[] = [];
   types: Type[] = [];
 
@@ -71,5 +71,16 @@ export class ShopComponent implements OnInit {
     }
   }
 
+  onSearch() {
+    this.shopParams.search = this.searchTerm?.nativeElement.value;
+    console.log(this.searchTerm?.nativeElement.value);
+    this.getProducts();
+  }
+
+  onReset(){
+    if(this.searchTerm) this.searchTerm.nativeElement.value = '';
+    this.shopParams = new ShopParams();
+    this.getProducts();
+  }
 
 }
