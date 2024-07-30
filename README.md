@@ -123,3 +123,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
    To undestand how to troubleshoot API Errors
 
+  ## create interceptor 
+    - ng g interceptor core/interceptors/error
