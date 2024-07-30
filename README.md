@@ -125,3 +125,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
   ## create interceptor 
     - ng g interceptor core/interceptors/error
+
+  ## ADD ngx-toastr for angular 15
+    - npm install ngx-toastr@15.2.2
+    
