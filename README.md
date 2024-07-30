@@ -103,4 +103,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
  - RouterOutler
  - Module architecture of our app encourages lazy loading
 
-#
+    # Creating additional components to route to
+      - components and module created 
+        ng g m home/home
+        ng g c home/home --skip-tests
+        ng g c shop/product-details --skip-tests
+
+
