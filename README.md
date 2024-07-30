@@ -109,7 +109,17 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
         ng g c home/home --skip-tests
         ng g c shop/product-details --skip-tests
     
-    # Creating the routes
-    
+    # Creating routing module
+ 
+# Error Handling
 
+  - Error handling in Angular
+  - Http interceptors
+  - Adding toast notifications
+  - troubleshooting tips
+
+  ## Goal:
+   To handle errors we receive from the API centrally and handled by the HTTP interceptor.
+
+   To undestand how to troubleshoot API Errors
 
