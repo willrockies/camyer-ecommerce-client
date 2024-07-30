@@ -108,5 +108,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
         ng g m home/home
         ng g c home/home --skip-tests
         ng g c shop/product-details --skip-tests
+    
+    # Creating the routes
+    
 
 

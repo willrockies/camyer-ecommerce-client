@@ -18,7 +18,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     SharedModule
   ],
   exports: [
-    ShopComponent
+    ShopComponent,
   ]
 })
 export class ShopModule { }
