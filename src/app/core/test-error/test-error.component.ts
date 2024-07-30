@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class TestErrorComponent {
   baseUrl = environment.apiUrl;
+  validationErrors: string[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -22,21 +23,24 @@ export class TestErrorComponent {
   get500Error() {
     this.http.get(this.baseUrl + 'buggy/servererror').subscribe({
       next: response => console.log(response),
-      error: error => console.log(error)
+      error: error => { console.log(error) }
     })
   }
 
-  get400Error(){
+  get400Error() {
     this.http.get(this.baseUrl + 'products/fortytwo').subscribe({
       next: response => console.log(response),
       error: error => console.log(error)
     })
   }
 
-  get400ValidationError(){
+  get400ValidationError() {
     this.http.get(this.baseUrl + 'products/fortytwo').subscribe({
-     next: response => console.log(response),
-     error: error => console.log(error)
+      next: response => console.log(response),
+      error: error => {
+        console.log(error);
+        this.validationErrors = error.errors;
+      }
     })
   }
 }
