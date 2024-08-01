@@ -141,4 +141,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
  ## Goal:
  to improve the UI, to add dynamic breacrumbs and page headers, to display a loading indicator when the app is waiting dor data from the API
 
-
+  ## Adding breadcrumbs
+  npm install xng-breadcrumb@9.x.x
