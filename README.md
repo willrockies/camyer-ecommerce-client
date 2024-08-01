@@ -143,3 +143,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
   ## Adding breadcrumbs
   npm install xng-breadcrumb@9.x.x
+
+  ## changing the bootstrap theme
+  npm install bootswatch
