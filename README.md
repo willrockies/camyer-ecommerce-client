@@ -128,4 +128,17 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
   ## ADD ngx-toastr for angular 15
     - npm install ngx-toastr@15.2.2
-    
+
+# Pazzazz
+ - Improving the UI
+ - Adding a page header
+ - Adding breadcrumb 
+ - Styling the product items
+ - Adding loading indicators 
+ - changing the bootstrap theme
+ - Improving the home page
+
+ ## Goal:
+ to improve the UI, to add dynamic breacrumbs and page headers, to display a loading indicator when the app is waiting dor data from the API
+
+
