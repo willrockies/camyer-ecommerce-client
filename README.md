@@ -149,3 +149,14 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
   ## Adding loading indicators 
   npm install ngx-spinner
+
+## Basket
+  - Adding the basket feature
+  - the behaviorSubject
+  - Using the async pipe
+  - Subscribing & Unsubscribing
+
+# Goal:
+  To add the basket feature to the angular app. To understand the usage of the BehaviorSubject and async pipe
+  
+
