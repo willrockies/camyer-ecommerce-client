@@ -49,12 +49,27 @@ export class BasketService {
     return this.basketSource.value;
   }
 
-  addItemToBasket(item: Product, quantity = 1) {
-    const itemToAdd: BasketItem = this.mapProductItemToBasketItem(item, quantity);
+  addItemToBasket(item: Product | BasketItem, quantity = 1) {
+    //const itemToAdd: BasketItem = this.mapProductItemToBasketItem(item);
+    if(this.isProduct(item)) item = this.mapProductItemToBasketItem(item);
     const basket = this.getCurrentBasketValue() ?? this.createBasket();
-    basket.items = this.AddOrUpdateItem(basket.items, itemToAdd, quantity);
+    basket.items = this.AddOrUpdateItem(basket.items, item, quantity);
     this.setBasket(basket);
 
+  }
+
+  removeItemFromBasket(id: number, quantity = 1) {
+    const basket = this.getCurrentBasketValue();
+    if (!basket) return;
+    const item = basket.items.find(x => x.id === id)
+    if (item) {
+      item.quantity -= quantity;
+      if(item.quantity === 0){
+        basket.items = basket.items.filter(x => x.id !== id);
+      }
+      if(basket.items.length > 0)this.setBasket(basket);
+      else this.deleteBasket(basket);
+    }
   }
 
   AddOrUpdateItem(items: BasketItem[], itemToAdd: BasketItem, quantity: number): BasketItem[] {
@@ -76,7 +91,16 @@ export class BasketService {
     return basket;
   }
 
-  private mapProductItemToBasketItem(item: Product, quantity: number): BasketItem {
+  deleteBasket(basket: Basket){
+    return this.http.delete(this.baseUrl + 'basket?id=' + basket.id).subscribe({
+      next: () => {
+        this.basketSource.next(null);
+        this.basketTotalSource.next(null);
+        localStorage.removeItem('basket_id');
+      }
+    })
+  }
+  private mapProductItemToBasketItem(item: Product): BasketItem {
     return {
       id: item.id,
       productName: item.name,
@@ -95,5 +119,9 @@ export class BasketService {
 
     const total = subtotal + shipping;
     this.basketTotalSource.next({shipping, subtotal, total});
+  }
+
+  private isProduct(item: Product | BasketItem): item is Product {
+    return (item as Product).productType !== undefined;
   }
 }
