@@ -1,7 +1,5 @@
-import { HttpClient } from '@angular/common/http';
+import { BasketService } from './basket/basket.service';
 import { Component, OnInit } from '@angular/core';
-import { Product } from './shared/models/product';
-import { Pagination } from './shared/models/pagination';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +7,13 @@ import { Pagination } from './shared/models/pagination';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'Camyer';
-  constructor(private http: HttpClient) { }
+
+  constructor(private basketService:BasketService) { }
 
   ngOnInit(): void {
-
+    const basketId = localStorage.getItem('basket_id');
+    if (basketId) {
+      this.basketService.getBasket(basketId);
+    }
   }
 }
