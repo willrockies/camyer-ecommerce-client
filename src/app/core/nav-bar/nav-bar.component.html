@@ -28,7 +28,7 @@
         class="cart-no"
         *ngIf="basketService.basketSource$ | async as basket"
       >
-        {{ basket.items.length }}
+        {{ getCount(basket.items) }}
       </div>
     </a>
 
