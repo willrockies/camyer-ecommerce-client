@@ -44,6 +44,7 @@
                     <i
                       class="fa fa-minus-circle text-warning me-2"
                       style="cursor: pointer; font-size: 2em"
+                      (click)="decrementQuantity(item)"
                     ></i>
                     <strong style="font-size: 1.5em">{{
                       item.quantity
@@ -51,6 +52,7 @@
                     <i
                       class="fa fa-plus-circle text-warning me-2 mx-2"
                       style="cursor: pointer; font-size: 2em"
+                      (click)="incrementQuantity(item)"
                     ></i>
                   </div>
                 </td>
